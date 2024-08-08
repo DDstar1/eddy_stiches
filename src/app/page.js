@@ -43,14 +43,14 @@ export default function Home() {
           className="object-top"
           priority
         />
-        <div className="absolute inset-0 bg-black bg-opacity-50 flex flex-col justify-end p-8">
-          <h1 className="text-white font-bold text-3xl w-1/2 mb-4">
+        <div className="absolute pb-20 inset-0 bg-black bg-opacity-50 flex flex-col justify-end p-4">
+          <h1 className="text-white text-center font-bold text-3xl w-2/3 mb-4 ">
             WANT TO FEEL GOOD IN YOUR CLOTHES?
           </h1>
           <p className="text-white text-xl mb-4">
             IT ALL STARTS WITH A GREAT FIT
           </p>
-          <p className="text-white mb-4 w-2/3">
+          <p className="text-white mb-4 w-2/3 hidden md:block">
             EDDY STICHES makes it easy to alter, repair and bespoke your clothes
             by connecting you with expert tailors across London.
           </p>

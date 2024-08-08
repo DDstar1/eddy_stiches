@@ -2,7 +2,7 @@ import Link from "next/link";
 
 const Footer = () => {
   return (
-    <footer className=" bg-gray-800 text-white">
+    <footer id="contact" className=" bg-gray-800 text-white">
       <div className="max-w-6xl mx-auto px-4 py-10">
         <div className="flex flex-col md:flex-row items-center justify-around gap-8">
           {/* Company Info */}

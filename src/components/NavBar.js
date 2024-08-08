@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Link from "next/link";
 import {
   Navbar,
   MobileNav,
@@ -28,9 +29,7 @@ export function StickyNavbar() {
         color="blue-gray"
         className="p-1 font-normal"
       >
-        <a href="#" className="flex items-center">
-          Pages
-        </a>
+        <Link href="/">Home</Link>
       </Typography>
       <Typography
         as="li"
@@ -38,9 +37,7 @@ export function StickyNavbar() {
         color="blue-gray"
         className="p-1 font-normal"
       >
-        <a href="#" className="flex items-center">
-          Account
-        </a>
+        <Link href="/about_us">About Us</Link>
       </Typography>
       <Typography
         as="li"
@@ -48,9 +45,7 @@ export function StickyNavbar() {
         color="blue-gray"
         className="p-1 font-normal"
       >
-        <a href="#" className="flex items-center">
-          Blocks
-        </a>
+        <Link href="/gallery">Gallery</Link>
       </Typography>
       <Typography
         as="li"
@@ -58,9 +53,7 @@ export function StickyNavbar() {
         color="blue-gray"
         className="p-1 font-normal"
       >
-        <a href="#" className="flex items-center">
-          Docs
-        </a>
+        <Link href="#contact">Contact Us</Link>
       </Typography>
     </ul>
   );
@@ -73,7 +66,7 @@ export function StickyNavbar() {
           href="#"
           className="mr-4 cursor-pointer py-1.5 font-medium"
         >
-          Material Tailwind
+          Eddy Stitches
         </Typography>
         <div className="flex items-center gap-4">
           <div className="mr-4 hidden lg:block">{navList}</div>
@@ -116,17 +109,7 @@ export function StickyNavbar() {
           </IconButton>
         </div>
       </div>
-      <MobileNav open={openNav}>
-        {navList}
-        <div className="flex items-center gap-x-1">
-          <Button fullWidth variant="text" size="sm" className="">
-            <span>Log In</span>
-          </Button>
-          <Button fullWidth variant="gradient" size="sm" className="">
-            <span>Sign in</span>
-          </Button>
-        </div>
-      </MobileNav>
+      <MobileNav open={openNav}>{navList}</MobileNav>
     </Navbar>
   );
 }

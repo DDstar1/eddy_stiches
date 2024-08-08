@@ -72,9 +72,11 @@ export default function About() {
             Join us on this fashion journey, and let's create a wardrobe that
             reflects your true self!
           </p>
-          <Link href="/shop">
-            <MyButton text={"Explore Our Collection"} />
-          </Link>
+          <center>
+            <Link className="flex justify-center items-center" href="#">
+              <MyButton text={"Explore Our Collection"} />
+            </Link>
+          </center>
         </div>
       </div>
     </>
