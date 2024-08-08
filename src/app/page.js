@@ -1,113 +1,168 @@
 import Image from "next/image";
+import { MyButton } from "@/components/MyButton";
+import MyCarousel from "@/components/Carousel";
+import MyCard from "@/components/cards";
+import HowItWorks from "@/components/How_it_works";
+
+// ... (image imports remain the same)
+const styled_blue_man = "/images/styled_blue_man.jpeg";
+const white_man = "/images/white_man.jpeg";
+
+const green_man_in_native = "/images/green_man_native.jpeg";
+const yellow_couple = "/images/yellow_couple.jpeg";
+
+const black_native = "/images/black_native.jpeg";
+const green_native_stick = "/images/green_native_stick.jpeg";
+const red_gold_native = "/images/red_gold_native.jpeg";
+const red_native = "/images/red_native.jpeg";
+const white_native = "/images/white_native.jpeg";
+
+const alterations_jeans = "/images/alterations_jeans.png";
+const restyling = "/images/restyling.jpeg";
+const reszing = "/images/resizing.jpeg";
+const child = "/images/child.jpeg";
+
+const spotlight_list = [
+  black_native,
+  green_native_stick,
+  red_gold_native,
+  red_native,
+  white_native,
+];
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">src/app/page.js</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
-      </div>
-
-      <div className="relative flex place-items-center before:absolute before:h-[300px] before:w-full sm:before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-full sm:after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 before:lg:h-[360px] z-[-1]">
+    <main className="font-sans">
+      {/* Hero Section */}
+      <section className="relative h-screen">
         <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
+          src={white_man}
+          layout="fill"
+          objectFit="cover"
+          quality={100}
+          className="object-top"
           priority
         />
-      </div>
-
-      <div className="mb-32 grid text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Docs{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Find in-depth information about Next.js features and API.
+        <div className="absolute inset-0 bg-black bg-opacity-50 flex flex-col justify-end p-8">
+          <h1 className="text-white font-bold text-3xl w-1/2 mb-4">
+            WANT TO FEEL GOOD IN YOUR CLOTHES?
+          </h1>
+          <p className="text-white text-xl mb-4">
+            IT ALL STARTS WITH A GREAT FIT
           </p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800 hover:dark:bg-opacity-30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Learn{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
+          <p className="text-white mb-4 w-2/3">
+            EDDY STICHES makes it easy to alter, repair and bespoke your clothes
+            by connecting you with expert tailors across London.
           </p>
-        </a>
+          <MyButton text="Book Us Now" className="w-48" />
+        </div>
+      </section>
 
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Templates{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Explore starter templates for Next.js.
+      {/* Re-styled Customers Section */}
+      <section className="py-16 bg-gray-100">
+        <div className="container mx-auto px-4">
+          <h2 className="font-bold text-4xl mb-6">STYLED CUSTOMERS</h2>
+          <p className="mb-12 text-lg">
+            We know the power of great fitting clothes in making you feel your
+            best, whether it's for a special occasion, important meeting or just
+            because we all deserve to feel confident.
           </p>
-        </a>
+          <div className="flex flex-wrap gap-1 justify-center mx-auto md:justify-around items-center mb-12">
+            <div className="w-full md:w-1/3 lg:w-1/3 mb-8">
+              <Image
+                src={green_man_in_native}
+                width={400}
+                height={600}
+                className="rounded-2xl shadow-lg mx-auto"
+              />
+              <p className="mt-4 text-center">
+                Native Sewn with a green material
+              </p>
+            </div>
+            <div className="w-full md:w-1/3 lg:w-1/3 mb-8">
+              <Image
+                src={yellow_couple}
+                width={400}
+                height={600}
+                className="rounded-2xl shadow-lg mx-auto"
+              />
+              <p className="mt-4 text-center">
+                Couple Native sewn with the rare yellow material
+              </p>
+            </div>{" "}
+            <div className="w-full md:w-1/3 lg:w-1/3 mb-8">
+              <Image
+                src={styled_blue_man}
+                width={400}
+                height={600}
+                className="rounded-2xl shadow-lg mx-auto"
+              />
+              <p className="mt-4 text-center">Blue Styled Native</p>
+            </div>{" "}
+            <div className="w-full md:w-1/3 lg:w-1/3 mb-8">
+              <Image
+                src={yellow_couple}
+                width={400}
+                height={600}
+                className="rounded-2xl shadow-lg filter grayscale mx-auto"
+              />
+              <p className="mt-4 text-center">
+                Couple Native sewn with the rare yellow material
+              </p>
+            </div>
+          </div>
+          <div className="text-center">
+            <MyButton text="Join Them and Book Us" className="w-64" />
+          </div>
+        </div>
+      </section>
 
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Deploy{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50 text-balance`}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
+      {/* Spotlight Section */}
+      <section className="py-16">
+        <div className="container mx-auto px-4">
+          <h2 className="font-bold text-4xl mb-12">OUR SPOTLIGHT</h2>
+          <MyCarousel images={spotlight_list} />
+        </div>
+      </section>
+
+      {/* Style Categories Section */}
+      <section className="py-16 bg-gray-100">
+        <div className="container mx-auto px-4">
+          <h2 className="font-bold text-4xl mb-6">STYLE CATEGORIES</h2>
+          <p className="mb-12 text-lg">
+            Choose from our categories of tailors, whether you're looking for a
+            local tailor, a wedding dress specialist or an express service, our
+            categories below will be of help!
           </p>
-        </a>
-      </div>
+          <div className="flex flex-wrap flex-col justify-center items-center md:flex-row md:justify-around gap-8">
+            <MyCard
+              title="COMPLICATED ALTERATIONS"
+              image={alterations_jeans}
+              description="We specialize in expert clothing alterations, from simple hems to complex resizing, ensuring a perfect fit and enhanced personal style."
+            />
+            <MyCard
+              title="RESIZING"
+              image={reszing}
+              description="Our skilled tailors handle everything from simple hem adjustments to complex garment resizing"
+            />
+            <MyCard
+              title="RESTYLING"
+              image={restyling}
+              description="Our restyling services from our skilled tailors ensure your clothes reflect the latest trends while maintaining their unique character"
+            />
+            <MyCard
+              title="CHILDREN'S WEAR"
+              image={child}
+              description="We also offer expert alterations and designs for children's clothing, ensuring a perfect fit and a stylish look"
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* How We Operate Section */}
+      <section className="py-16 bg-white">
+        <HowItWorks />
+      </section>
     </main>
   );
 }
