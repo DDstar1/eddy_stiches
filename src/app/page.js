@@ -6,7 +6,7 @@ import HowItWorks from "@/components/How_it_works";
 import Link from "next/link";
 
 // ... (image imports remain the same)
-const styled_blue_man = "/images/styled_blue_man.jpeg";
+const styled_blue_man1 = "/images/styled_blue_man1.jpeg";
 const white_man = "/images/white_man.jpeg";
 
 const green_man_in_native = "/images/green_man_native.jpeg";
@@ -112,7 +112,7 @@ export default function Home() {
             </div>
             <div className="w-full md:w-1/3 lg:w-1/3 mb-8">
               <Image
-                src={styled_blue_man}
+                src={styled_blue_man1}
                 width={400}
                 height={600}
                 className="rounded-2xl shadow-lg mx-auto"

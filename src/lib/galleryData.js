@@ -57,7 +57,7 @@ const all_child_wr = [
 ];
 
 // Natives
-const native1 = "/images/styled_blue_man.jpeg";
+const native1 = "/images/styled_blue_man1.jpeg";
 const native2 = "/images/green_man_native.jpeg";
 const native3 = "/images/yellow_couple.jpeg";
 const native4 = "/images/black_native.jpeg";
