@@ -11,7 +11,7 @@ const white_man = "/images/white_man.jpeg";
 
 const green_man_in_native = "/images/green_man_native.jpeg";
 const yellow_couple = "/images/yellow_couple.jpeg";
-const child_man = "/images/child_wr101.jpeg";
+const child_man = "/images/child_wr10.jpeg";
 
 const black_native = "/images/black_native.jpeg";
 const green_native_stick = "/images/green_native_stick.jpeg";
@@ -96,10 +96,19 @@ export default function Home() {
                 height={600}
                 className="rounded-2xl shadow-lg mx-auto"
               />
-              <p className="mt-4 text-center">
-                Couple Native sewn with the rare yellow material
-              </p>
+              <p className="mt-4 text-center">Matching Couple Senator Outfit</p>
             </div>{" "}
+            <div className="w-full  md:w-1/3 lg:w-1/3 mb-8">
+              <Image
+                src={child_man}
+                width={400}
+                height={600}
+                className="rounded-2xl shadow-lg mx-auto "
+              />
+              <p className="mt-4 text-center">
+                Matching Outfit of Father and Son
+              </p>
+            </div>
             <div className="w-full md:w-1/3 lg:w-1/3 mb-8">
               <Image
                 src={styled_blue_man}
@@ -109,17 +118,6 @@ export default function Home() {
               />
               <p className="mt-4 text-center">Blue Styled Native</p>
             </div>{" "}
-            <div className="w-full md:w-1/3 lg:w-1/3 mb-8">
-              <Image
-                src={child_man}
-                width={400}
-                height={600}
-                className="rounded-2xl shadow-lg mx-auto"
-              />
-              <p className="mt-4 text-center">
-                Matching Outfit of Father and Son
-              </p>
-            </div>
           </div>
           <div className="text-center">
             <Link href={"https://api.whatsapp.com/send?phone=2348066007330"}>
