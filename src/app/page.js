@@ -61,7 +61,7 @@ export default function Home() {
           </p>
           <p className="text-white mb-4 w-2/3 hidden md:block">
             EDDY STICHES makes it easy to alter, repair and bespoke your clothes
-            by connecting you with expert tailors across London.
+            by connecting you with expert tailors.
           </p>
           <Link href={"https://api.whatsapp.com/send?phone=2348066007330"}>
             <MyButton text="Book Us Now" className="w-48" />
