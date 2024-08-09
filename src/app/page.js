@@ -141,9 +141,10 @@ export default function Home() {
         <div className="container mx-auto px-4">
           <h2 className="font-bold text-4xl mb-6">OUR SERVICES</h2>
           <p className="mb-12 text-lg">
-            Choose from our categories of tailors, whether you're looking for a
-            local tailor, a wedding dress specialist or an express service, our
-            categories below will be of help!
+            Discover our range of tailoring services to suit your needs. Whether
+            you're searching for a local tailor, a wedding dress specialist, or
+            an express service, you'll find the perfect option among our
+            categories below.
           </p>
           <div className="flex flex-wrap flex-col justify-center items-center md:flex-row md:justify-around gap-8">
             <MyCard
