@@ -3,6 +3,7 @@ import { MyButton } from "@/components/MyButton";
 import MyCarousel from "@/components/Carousel";
 import MyCard from "@/components/cards";
 import HowItWorks from "@/components/How_it_works";
+import Link from "next/link";
 
 // ... (image imports remain the same)
 const styled_blue_man = "/images/styled_blue_man.jpeg";
@@ -30,9 +31,15 @@ const spotlight_list = [
   white_native,
 ];
 
+const WhatsAppButton = () => {
+  const handleClick = () => {
+    window.location.href = "https://api.whatsapp.com/send?phone=2348066007330";
+  };
+};
+
 export default function Home() {
   return (
-    <main className="font-sans">
+    <main>
       {/* Hero Section */}
       <section className="relative h-screen">
         <Image
@@ -43,7 +50,7 @@ export default function Home() {
           className="object-top"
           priority
         />
-        <div className="absolute pb-20 inset-0 bg-black bg-opacity-50 flex flex-col justify-end p-4">
+        <div className="absolute pb-28 inset-0 bg-black bg-opacity-50 flex flex-col justify-end p-4">
           <h1 className="text-white text-center font-bold text-3xl w-2/3 mb-4 ">
             WANT TO FEEL GOOD IN YOUR CLOTHES?
           </h1>
@@ -54,7 +61,9 @@ export default function Home() {
             EDDY STICHES makes it easy to alter, repair and bespoke your clothes
             by connecting you with expert tailors across London.
           </p>
-          <MyButton text="Book Us Now" className="w-48" />
+          <Link href={"https://api.whatsapp.com/send?phone=2348066007330"}>
+            <MyButton text="Book Us Now" className="w-48" />
+          </Link>
         </div>
       </section>
 
@@ -112,7 +121,9 @@ export default function Home() {
             </div>
           </div>
           <div className="text-center">
-            <MyButton text="Join Them and Book Us" className="w-64" />
+            <Link href={"https://api.whatsapp.com/send?phone=2348066007330"}>
+              <MyButton text="Join Them and Book Us" className="w-64" />
+            </Link>
           </div>
         </div>
       </section>

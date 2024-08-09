@@ -25,3 +25,22 @@ body {
     text-wrap: balance;
   }
 }
+
+@keyframes blinkBorder {
+  0% {
+    border: 4px dotted black;
+    /* border-radius: 0; */
+  }
+  50% {
+    border: 4px dotted transparent;
+    /* border-radius: 50%; */
+  }
+  100% {
+    border: 4px dotted black;
+    /* border-radius: 0; */
+  }
+}
+
+.blinking-border {
+  animation: blinkBorder 1s infinite;
+}

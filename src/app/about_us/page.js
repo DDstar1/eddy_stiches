@@ -3,27 +3,22 @@ import Head from "next/head";
 import Link from "next/link";
 import { MyButton } from "@/components/MyButton";
 
+export const metadata = {
+  title: "About Us - Eddy Murphy Fashion",
+};
 export default function About() {
   return (
     <>
-      <Head>
-        <title>About Us - Eddy Murphy Fashion</title>
-        <link
-          href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap"
-          rel="stylesheet"
-        />
-      </Head>
-
-      <div className="container mx-auto px-4 py-8">
-        <h1 className="text-4xl font-bold text-gray-800 mb-8">
+      <div className="container mx-auto px-4 py-8 ">
+        <h1 className="text-4xl font-bold text-gray-900 mb-8">
           About Eddy Murphy Fashion
         </h1>
 
         <section className="bg-white rounded-lg shadow-md p-6 mb-8">
-          <h2 className="text-2xl font-semibold text-gray-700 mb-4">
+          <h2 className="text-2xl font-semibold text-gray-800 mb-4">
             Our Passion
           </h2>
-          <p className="text-gray-600 mb-4">
+          <p className="text-gray-700 mb-4">
             At Eddy Murphy Fashion, we're passionate about creating fashion that
             makes you feel confident, expressive, and authentic. Our mission is
             to provide high-quality, unique, and stylish clothing and
@@ -32,10 +27,10 @@ export default function About() {
         </section>
 
         <section className="bg-white rounded-lg shadow-md p-6 mb-8">
-          <h2 className="text-2xl font-semibold text-gray-700 mb-4">
+          <h2 className="text-2xl font-semibold text-gray-800 mb-4">
             Our Story
           </h2>
-          <p className="text-gray-600">
+          <p className="text-gray-700">
             Founded by Eddy Murphy, a fashion enthusiast with a keen eye for
             detail, Eddy Murphy Fashion aims to bridge the gap between high-end
             fashion and affordability. Our team of skilled designers and
@@ -45,10 +40,10 @@ export default function About() {
         </section>
 
         <section className="bg-white rounded-lg shadow-md p-6 mb-8">
-          <h2 className="text-2xl font-semibold text-gray-700 mb-4">
+          <h2 className="text-2xl font-semibold text-gray-800 mb-4">
             Our Vision
           </h2>
-          <p className="text-gray-600">
+          <p className="text-gray-700">
             We envision a world where fashion is accessible, sustainable, and
             empowering. We're committed to using eco-friendly materials,
             supporting local artisans, and promoting body positivity.
@@ -56,10 +51,10 @@ export default function About() {
         </section>
 
         <section className="bg-white rounded-lg shadow-md p-6 mb-8">
-          <h2 className="text-2xl font-semibold text-gray-700 mb-4">
+          <h2 className="text-2xl font-semibold text-gray-800 mb-4">
             Our Promise
           </h2>
-          <ul className="list-disc list-inside text-gray-600">
+          <ul className="list-disc list-inside text-gray-700">
             <li>Exceptional quality and attention to detail</li>
             <li>Unique and stylish designs that make you stand out</li>
             <li>Personalized customer service and styling advice</li>
@@ -68,7 +63,7 @@ export default function About() {
         </section>
 
         <div className="text-center mt-8">
-          <p className="text-gray-600 mb-4">
+          <p className="text-gray-800 mb-4">
             Join us on this fashion journey, and let's create a wardrobe that
             reflects your true self!
           </p>
