@@ -40,7 +40,7 @@ const child_wr6 = "/images/child_wr6.jpeg";
 const child_wr7 = "/images/child_wr7.jpeg";
 const child_wr8 = "/images/child_wr8.jpeg";
 const child_wr9 = "/images/child_wr9.jpeg";
-const child_wr10 = "/images/child_wr10.jpeg";
+const child_wr103 = "/images/child_wr103.jpeg";
 const child_wr11 = "/images/child_wr11.jpeg";
 const all_child_wr = [
   child_wr1,
@@ -52,7 +52,7 @@ const all_child_wr = [
   child_wr7,
   child_wr8,
   child_wr9,
-  child_wr10,
+  child_wr103,
   child_wr11,
 ];
 

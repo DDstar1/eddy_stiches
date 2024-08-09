@@ -11,7 +11,7 @@ const white_man = "/images/white_man.jpeg";
 
 const green_man_in_native = "/images/green_man_native.jpeg";
 const yellow_couple = "/images/yellow_couple.jpeg";
-const child_man = "/images/child_wr10.jpeg";
+const child_man = "/images/child_wr103.jpeg";
 
 const black_native = "/images/black_native.jpeg";
 const green_native_stick = "/images/green_native_stick.jpeg";
@@ -23,6 +23,7 @@ const alterations_jeans = "/images/alterations_jeans.png";
 const restyling = "/images/restyling.jpeg";
 const reszing = "/images/resizing.jpeg";
 const child = "/images/child.jpeg";
+const designing = "/images/clothes_design.jpg";
 
 const spotlight_list = [
   black_native,
@@ -161,9 +162,9 @@ export default function Home() {
               description="Our restyling services from our skilled tailors ensure your clothes reflect the latest trends while maintaining their unique character"
             />
             <MyCard
-              title="CHILDREN'S WEAR"
-              image={child}
-              description="We also offer expert alterations and designs for children's clothing, ensuring a perfect fit and a stylish look"
+              title="DESIGNING"
+              image={designing}
+              description="We also offer expert and custom designs for a variety of clothing, including children’s apparel, senators' natives, and formal suits."
             />
           </div>
         </div>

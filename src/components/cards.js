@@ -8,7 +8,7 @@ const Card = ({ title, image, description }) => {
           src={image}
           alt="card-image"
           fill
-          className="object-cover h-full w-full"
+          className="object-cover object-top h-full w-full"
         />
       </div>
       <div className="p-6">

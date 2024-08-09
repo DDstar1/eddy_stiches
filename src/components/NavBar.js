@@ -84,9 +84,9 @@ export function StickyNavbar() {
         <Typography
           as="a"
           href="#"
-          className="mr-4 cursor-pointer py-1.5 flex relative items-center gap-5"
+          className="mr-4 cursor-pointer py-1.5 flex relative left-3 items-center gap-5"
         >
-          <div className="z-20 font-bold">Eddy Stitches </div>
+          <div className="z-20 font-bold relative ">Eddy Stitches </div>
           <Image
             src="/logo.png"
             alt="Vercel Logo"
