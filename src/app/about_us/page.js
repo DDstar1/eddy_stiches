@@ -68,7 +68,7 @@ export default function About() {
             reflects your true self!
           </p>
           <center>
-            <Link className="flex justify-center items-center" href="#">
+            <Link className="flex justify-center items-center" href="/gallery">
               <MyButton text={"Explore Our Collection"} />
             </Link>
           </center>

@@ -11,6 +11,7 @@ const white_man = "/images/white_man.jpeg";
 
 const green_man_in_native = "/images/green_man_native.jpeg";
 const yellow_couple = "/images/yellow_couple.jpeg";
+const child_man = "/images/child_wr101.jpeg";
 
 const black_native = "/images/black_native.jpeg";
 const green_native_stick = "/images/green_native_stick.jpeg";
@@ -50,7 +51,7 @@ export default function Home() {
           className="object-top"
           priority
         />
-        <div className="absolute pb-28 inset-0 bg-black bg-opacity-50 flex flex-col justify-end p-4">
+        <div className="absolute pb-32 inset-0 bg-black bg-opacity-50 flex flex-col justify-end p-4">
           <h1 className="text-white text-center font-bold text-3xl w-2/3 mb-4 ">
             WANT TO FEEL GOOD IN YOUR CLOTHES?
           </h1>
@@ -110,13 +111,13 @@ export default function Home() {
             </div>{" "}
             <div className="w-full md:w-1/3 lg:w-1/3 mb-8">
               <Image
-                src={yellow_couple}
+                src={child_man}
                 width={400}
                 height={600}
-                className="rounded-2xl shadow-lg filter grayscale mx-auto"
+                className="rounded-2xl shadow-lg mx-auto"
               />
               <p className="mt-4 text-center">
-                Couple Native sewn with the rare yellow material
+                Matching Outfit of Father and Son
               </p>
             </div>
           </div>
@@ -139,7 +140,7 @@ export default function Home() {
       {/* Style Categories Section */}
       <section className="py-16 bg-gray-100">
         <div className="container mx-auto px-4">
-          <h2 className="font-bold text-4xl mb-6">STYLE CATEGORIES</h2>
+          <h2 className="font-bold text-4xl mb-6">OUR SERVICES</h2>
           <p className="mb-12 text-lg">
             Choose from our categories of tailors, whether you're looking for a
             local tailor, a wedding dress specialist or an express service, our
