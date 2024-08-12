@@ -33,6 +33,7 @@ const Login = () => {
       }
     } catch (err) {
       setError("An error occurred while logging in.");
+      toast.error(data.error);
     }
   };
 

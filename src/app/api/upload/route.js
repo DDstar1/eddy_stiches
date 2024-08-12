@@ -1,44 +1,30 @@
 import { NextRequest, NextResponse } from "next/server";
-import path from "path";
-import fs from "fs";
-import { v4 as uuidv4 } from "uuid";
+import { put } from "@vercel/blob";
 import { apiPost } from "../db"; // Adjust import based on your project structure
 
-const UPLOAD_DIR = path.resolve(process.cwd(), "public/uploads");
+// const UPLOAD_DIR = path.resolve(process.cwd(), "public/uploads");
 
 export const POST = async (req) => {
   try {
-    // Get the form data
-    const formData = await req.formData();
-    const file = formData.get("image");
+    const { searchParams } = new URL(req.url);
+    const filename = searchParams.get("filename");
+    const tag = searchParams.get("tag");
 
-    console.log(file);
-    console.log("hgchhchch");
+    // console.log(formData);
 
-    if (!file) {
-      return NextResponse.json({ success: false, message: "No file uploaded" });
-    }
+    // const file = formData.get("image");
+    // const tag = formData.get("tag");
+    // console.log(searchParams);
 
-    // Generate a unique filename
-    const filename = `${uuidv4()}-${file.name}`;
-    const filePath = path.resolve(UPLOAD_DIR, filename);
+    const blob = await put(filename, req.body, {
+      access: "public",
+    });
 
-    // Ensure the upload directory exists
-    if (!fs.existsSync(UPLOAD_DIR)) {
-      fs.mkdirSync(UPLOAD_DIR, { recursive: true });
-    }
-
-    // Convert the file to a buffer and save it
-    const buffer = Buffer.from(await file.arrayBuffer());
-    fs.writeFileSync(filePath, buffer);
-
-    // Extract the tag from form data (you may need to adjust this based on your form structure)
-    const tag = formData.get("tag");
-
+    const blob_url = blob.url;
     // Save the file info to the database
-    await apiPost(tag, `/uploads/${filename}`);
+    await apiPost(tag, blob_url);
 
-    return NextResponse.json({ success: true, name: filename });
+    return NextResponse.json({ success: true, url: blob_url });
   } catch (error) {
     console.error("Error handling file upload:", error);
     return NextResponse.json({
@@ -46,4 +32,10 @@ export const POST = async (req) => {
       message: "Internal server error",
     });
   }
+};
+
+export const config = {
+  api: {
+    bodyParser: false,
+  },
 };

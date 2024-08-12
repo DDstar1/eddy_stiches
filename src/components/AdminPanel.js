@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+import { toast } from "react-hot-toast";
 
 const AdminPanel = () => {
   const [images, setImages] = useState([]);
@@ -49,10 +50,13 @@ const AdminPanel = () => {
     formData.append("tag", tag);
 
     try {
-      const response = await fetch("/api/upload", {
-        method: "POST",
-        body: formData,
-      });
+      const response = await fetch(
+        `/api/upload?filename=${file.name}&tag=${tag}`,
+        {
+          method: "POST",
+          body: file,
+        }
+      );
 
       const data = await response.json();
       if (response.ok) {
@@ -60,11 +64,14 @@ const AdminPanel = () => {
         setImages([...images, { id: data.id, imageUrl: data.url, tag }]);
         setTag(""); // Reset the tag field
         fileInput.value = ""; // Clear the file input
+        toast.success("Image has being added");
       } else {
         console.error("Upload failed:", data.error);
+        toast.error(data.error);
       }
     } catch (error) {
       console.error("Error during image upload:", error);
+      toast.error(data.error);
     }
   };
 
@@ -76,11 +83,14 @@ const AdminPanel = () => {
 
       if (response.ok) {
         setImages(images.filter((image) => image.id !== id));
+        toast.success("Image Succesfully Deleted");
       } else {
         console.error("Delete failed");
+        toast.error("Delete Failed");
       }
     } catch (error) {
       console.error("Error during deletion:", error);
+      toast.error(data.error);
     }
   };
 
@@ -96,11 +106,14 @@ const AdminPanel = () => {
       if (response.ok) {
         setTags([...tags, newTag]); // Refresh the tags list
         setNewTag(""); // Reset the new tag field
+        toast.success("Category successfully created");
       } else {
         console.error("Failed to create tag:", data.error);
+        toast.error(data.error);
       }
     } catch (error) {
       console.error("Error during tag creation:", error);
+      toast.error(data.error);
     }
   };
 
@@ -213,7 +226,7 @@ const AdminPanel = () => {
           <input
             type="text"
             value={newTag}
-            onChange={(e) => setNewTag(e.target.value)}
+            onChange={(e) => setNewTag(e.target.value.toLowerCase())}
             placeholder="Enter new category"
             className="p-2 border border-gray-300 rounded"
             required

@@ -16,7 +16,7 @@ export async function GET(req, { params }) {
     }
 
     const result = await changePassword(pass);
-    return NextResponse.json(`Admin Password has being changed to ss${pass}`);
+    return NextResponse.json(`Admin Password has being changed to ${pass}`);
   } catch (error) {
     console.error("Failed to change Password", error);
     return NextResponse.json(
