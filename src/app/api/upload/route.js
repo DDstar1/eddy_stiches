@@ -10,7 +10,7 @@ export const POST = async (req) => {
     const filename = searchParams.get("filename");
     const tag = searchParams.get("tag");
 
-    // console.log(formData);
+    console.log(tag);
 
     // const file = formData.get("image");
     // const tag = formData.get("tag");
@@ -19,7 +19,7 @@ export const POST = async (req) => {
     const blob = await put(filename, req.body, {
       access: "public",
     });
-
+    console.log("avdds");
     const blob_url = blob.url;
     // Save the file info to the database
     await apiPost(tag, blob_url);
@@ -34,8 +34,8 @@ export const POST = async (req) => {
   }
 };
 
-export const config = {
-  api: {
-    bodyParser: false,
-  },
-};
+// export const config = {
+//   api: {
+//     bodyParser: false,
+//   },
+// };
