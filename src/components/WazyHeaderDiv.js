@@ -9,9 +9,9 @@ function WazyHeaderDiv({ text, colour, heightPX }) {
         paused={false}
         style={{ display: "flex", height: `${heightPX}px`, overflow: "hidden" }}
         options={{
-          height: 5,
+          height: 3,
           amplitude: 20,
-          speed: 0.15,
+          speed: 0.2,
           points: 3,
         }}
       />

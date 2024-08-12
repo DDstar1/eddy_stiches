@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Head from "next/head";
 import { Gallery } from "react-grid-gallery";
 import Lightbox from "yet-another-react-lightbox";
@@ -8,38 +8,43 @@ import Zoom from "yet-another-react-lightbox/plugins/zoom";
 import Fullscreen from "yet-another-react-lightbox/plugins/fullscreen";
 import "yet-another-react-lightbox/styles.css";
 import WazyHeaderDiv from "@/components/WazyHeaderDiv";
-import { Data } from "@/lib/galleryData";
 
 const TailorGallery = () => {
-  const [suit_index, setsuit_index] = useState(-1);
-  const [child_index, setchild_index] = useState(-1);
-  const [native_index, setnative_index] = useState(-1);
+  const [selectedImageIndex, setSelectedImageIndex] = useState(-1);
+  const [currentCategory, setCurrentCategory] = useState("");
+  const [galleries, setGalleries] = useState({});
 
-  // Children Data
-  const childrenImages = Data.find(
-    (category) => category.category === "chil_wr"
-  ).data;
+  useEffect(() => {
+    // Fetch images grouped by tags
+    const fetchImages = async () => {
+      try {
+        const response = await fetch("/api/getGalleryImages");
+        const data = await response.json();
+        setGalleries(data);
+      } catch (error) {
+        console.error("Failed to fetch images:", error);
+      }
+    };
 
-  // Suit Data
-  const suitImages = Data.find((category) => category.category === "suit").data;
+    fetchImages();
+  }, []);
 
-  // Native Data
-  const nativeImages = Data.find(
-    (category) => category.category === "native"
-  ).data;
+  const handleImageClick = (category, index) => {
+    setCurrentCategory(category);
+    setSelectedImageIndex(index);
+  };
 
-  const slides = Data.flatMap((category) =>
-    category.data.map(({ original, width, height }) => ({
-      src: original,
-      width,
-      height,
+  const slides =
+    galleries[currentCategory]?.map((src) => ({
+      src,
+      width: 800,
+      height: 600,
       isSelected: false,
-    }))
-  );
+    })) || [];
 
-  const handleSuitClick = (index) => setsuit_index(index);
-  const handleChildClick = (index) => setchild_index(index);
-  const handleNativeClick = (index) => setnative_index(index);
+  const hasImages = Object.keys(galleries).some(
+    (key) => galleries[key].length > 0
+  );
 
   return (
     <>
@@ -47,81 +52,47 @@ const TailorGallery = () => {
         <title>Our Gallery</title>
       </Head>
 
-      <div className="mx-auto text-center px-4 py-8 bg-gradient-to-b from-white to-gray-200 bg-gray">
-        <section className="flex gap-16 flex-col md:flex-row mb-20 justify-center ">
-          <div className="flex-1">
-            <WazyHeaderDiv
-              text="Children Wears"
-              colour="#bdbdbd"
-              heightPX={15}
-            />
-            <Gallery
-              images={childrenImages}
-              onClick={handleChildClick}
-              enableImageSelection={false}
-            />
+      <div className="my-auto mx-auto px-4 py-8 bg-gradient-to-b from-white to-gray-200 min-h-screen">
+        {hasImages ? (
+          <section className="flex flex-col md:flex-row md:flex-wrap gap-8 mb-16">
+            {Object.entries(galleries).map(([key, images], index) => (
+              <div
+                key={key}
+                className={`flex-1 text-center ${
+                  index % 4 === 1 ? "md:w-full" : "md:w-1/2"
+                }`}
+              >
+                <WazyHeaderDiv
+                  text={key.charAt(0).toUpperCase() + key.slice(1)}
+                  colour="#bdbdbd"
+                  heightPX={15}
+                />
+                <Gallery
+                  images={images.map((src) => ({
+                    src,
+                    width: 800,
+                    height: 600,
+                  }))}
+                  onClick={(index) => handleImageClick(key, index)}
+                  enableImageSelection={false}
+                />
+              </div>
+            ))}
+          </section>
+        ) : (
+          <div className="flex justify-center items-center min-h-screen w-full">
+            <div className="text-center p-16 text-black bg-gradient-to-r from-gray-200 to-gray-300 rounded-md shadow-md">
+              There are no available images at the moment.
+            </div>
           </div>
-          <div className="flex-1">
-            <WazyHeaderDiv text="Suits" colour="#bdbdbd" heightPX={15} />
-            <Gallery
-              images={suitImages}
-              onClick={handleSuitClick}
-              enableImageSelection={false}
-            />
-          </div>
-        </section>
-
-        <WazyHeaderDiv
-          text="Native/Senator Wears"
-          colour="#bdbdbd"
-          heightPX={15}
-        />
-        <Gallery
-          images={nativeImages}
-          onClick={handleNativeClick}
-          enableImageSelection={false}
-        />
+        )}
 
         <Lightbox
-          slides={nativeImages.map((image) => ({
-            src: image.original,
-            width: image.width,
-            height: image.height,
-          }))}
+          slides={slides}
           plugins={[Zoom, Fullscreen]}
-          open={native_index >= 0}
-          index={native_index}
-          close={() => setnative_index(-1)}
-          zoom={{
-            scrollToZoom: true,
-            maxZoomPixelRatio: 5,
-          }}
-        />
-        <Lightbox
-          slides={childrenImages.map((image) => ({
-            src: image.original,
-            width: image.width,
-            height: image.height,
-          }))}
-          plugins={[Zoom, Fullscreen]}
-          open={child_index >= 0}
-          index={child_index}
-          close={() => setchild_index(-1)}
-          zoom={{
-            scrollToZoom: true,
-            maxZoomPixelRatio: 5,
-          }}
-        />
-        <Lightbox
-          slides={suitImages.map((image) => ({
-            src: image.original,
-            width: image.width,
-            height: image.height,
-          }))}
-          plugins={[Zoom, Fullscreen]}
-          open={suit_index >= 0}
-          index={suit_index}
-          close={() => setsuit_index(-1)}
+          open={selectedImageIndex >= 0}
+          index={selectedImageIndex}
+          close={() => setSelectedImageIndex(-1)}
           zoom={{
             scrollToZoom: true,
             maxZoomPixelRatio: 5,

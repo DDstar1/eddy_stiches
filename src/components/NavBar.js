@@ -1,40 +1,49 @@
 "use client";
 
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import {
   Navbar,
   MobileNav,
   Typography,
-  Button,
   IconButton,
-  Card,
 } from "@material-tailwind/react";
+import { useRouter } from "next/navigation";
 
 const highlightContact = () => {
   const contactElement = document.getElementById("real_contact");
-  // alert("dacsd");
   if (contactElement) {
     contactElement.scrollIntoView({ behavior: "smooth" });
 
-    // Reset the border after 3 seconds
-
-    // Wait for 1 second before adding the blinking border class
     setTimeout(() => {
       contactElement.classList.add("blinking-border");
 
-      // Remove the blinking border class after 5 seconds
       setTimeout(() => {
         contactElement.classList.remove("blinking-border");
-      }, 4000); // Blink for 5 seconds
-    }, 1000); // 1-second delay before starting the blinking
+      }, 4000);
+    }, 1000);
   }
 };
-export function StickyNavbar() {
-  const [openNav, setOpenNav] = React.useState(false);
 
-  React.useEffect(() => {
+export function StickyNavbar() {
+  const [openNav, setOpenNav] = useState(false);
+  const [clickCount, setClickCount] = useState(0);
+  const router = useRouter();
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      if (clickCount === 2) {
+        router.push("/admin");
+        setClickCount(0); // Reset click count after redirect
+      } else if (clickCount > 0) {
+        const timer = setTimeout(() => setClickCount(0), 500);
+        return () => clearTimeout(timer); // Reset click count if time exceeds 500ms
+      }
+    }
+  }, [clickCount, router]);
+
+  useEffect(() => {
     window.addEventListener(
       "resize",
       () => window.innerWidth >= 960 && setOpenNav(false)
@@ -78,6 +87,10 @@ export function StickyNavbar() {
     </ul>
   );
 
+  const handleLogoClick = () => {
+    setClickCount((prev) => prev + 1);
+  };
+
   return (
     <Navbar className=" sticky top-0 z-10 h-max max-w-full rounded-none px-4 py-2 lg:px-8 lg:py-4 text-black">
       <div className="flex items-center justify-between text-blue-gray-900">
@@ -85,6 +98,7 @@ export function StickyNavbar() {
           as="a"
           href="#"
           className="mr-4 cursor-pointer py-1.5 flex relative left-3 items-center gap-5"
+          onClick={handleLogoClick}
         >
           <div className="z-20 font-bold relative ">Eddy Stitches </div>
           <Image
