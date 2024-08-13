@@ -55,10 +55,18 @@ export default function About() {
             Our Promise
           </h2>
           <ul className="list-disc list-inside text-gray-700">
-            <li>Exceptional quality and attention to detail</li>
-            <li>Unique and stylish designs that make you stand out</li>
-            <li>Personalized customer service and styling advice</li>
-            <li>Sustainable and responsible fashion practices</li>
+            <li className="my-3">
+              Exceptional quality and attention to detail
+            </li>
+            <li className="my-3">
+              Unique and stylish designs that make you stand out
+            </li>
+            <li className="my-3">
+              Personalized customer service and styling advice
+            </li>
+            <li className="my-3">
+              Sustainable and responsible fashion practices
+            </li>
           </ul>
         </section>
 
@@ -68,7 +76,10 @@ export default function About() {
             reflects your true self!
           </p>
           <center>
-            <Link className="flex justify-center items-center" href="/gallery">
+            <Link
+              className="flex justify-center items-center my-10"
+              href="/gallery"
+            >
               <MyButton text={"Explore Our Collection"} />
             </Link>
           </center>

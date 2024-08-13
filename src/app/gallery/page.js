@@ -45,10 +45,6 @@ const TailorGallery = () => {
       isSelected: false,
     })) || [];
 
-  const hasImages = Object.keys(galleries).some(
-    (key) => galleries[key].length > 0
-  );
-
   return (
     <>
       <Head>
@@ -56,7 +52,7 @@ const TailorGallery = () => {
       </Head>
 
       <div className="my-auto mx-auto px-4 py-8 bg-gradient-to-b from-white to-gray-200 min-h-screen">
-        {galleries != [] ? (
+        {galleries.length > 0 ? (
           <section className="flex flex-col md:flex-row md:flex-wrap gap-8 mb-16">
             {galleries.map((item, index) => (
               <div
