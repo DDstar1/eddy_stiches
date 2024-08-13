@@ -12,7 +12,7 @@ import WazyHeaderDiv from "@/components/WazyHeaderDiv";
 const TailorGallery = () => {
   const [selectedImageIndex, setSelectedImageIndex] = useState(-1);
   const [currentCategory, setCurrentCategory] = useState("");
-  const [galleries, setGalleries] = useState({});
+  const [galleries, setGalleries] = useState([]);
 
   useEffect(() => {
     // Fetch images grouped by tags
@@ -20,6 +20,7 @@ const TailorGallery = () => {
       try {
         const response = await fetch("/api/getGalleryImages");
         const data = await response.json();
+        console.log(data);
         setGalleries(data);
       } catch (error) {
         console.error("Failed to fetch images:", error);
@@ -53,27 +54,27 @@ const TailorGallery = () => {
       </Head>
 
       <div className="my-auto mx-auto px-4 py-8 bg-gradient-to-b from-white to-gray-200 min-h-screen">
-        {hasImages ? (
+        {galleries != [] ? (
           <section className="flex flex-col md:flex-row md:flex-wrap gap-8 mb-16">
-            {Object.entries(galleries).map(([key, images], index) => (
+            {galleries.map((item, index) => (
               <div
-                key={key}
+                key={item.tag}
                 className={`flex-1 text-center ${
                   index % 4 === 1 ? "md:w-full" : "md:w-1/2"
                 }`}
               >
                 <WazyHeaderDiv
-                  text={key.charAt(0).toUpperCase() + key.slice(1)}
+                  text={item.tag.charAt(0).toUpperCase() + item.tag.slice(1)}
                   colour="#bdbdbd"
                   heightPX={15}
                 />
                 <Gallery
-                  images={images.map((src) => ({
+                  images={item.tag_list.map((src) => ({
                     src,
                     width: 800,
                     height: 600,
                   }))}
-                  onClick={(index) => handleImageClick(key, index)}
+                  onClick={(index) => handleImageClick(item.tag, index)}
                   enableImageSelection={false}
                 />
               </div>

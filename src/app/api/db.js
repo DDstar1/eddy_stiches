@@ -99,15 +99,25 @@ export const apiGetAllTagImages = async () => {
   try {
     const { rows } = await db.query(query);
     // Group images by tag name
-    const result = rows.reduce((acc, row) => {
-      if (!acc[row.tagName]) {
-        acc[row.tagName] = [];
+
+    console.log(rows);
+    const groupedByTag = rows.reduce((acc, current) => {
+      const { tagname, imageurl } = current;
+      if (!acc[tagname]) {
+        acc[tagname] = [];
       }
-      acc[row.tagName].push(row.imageUrl);
+      acc[tagname].push(imageurl);
       return acc;
     }, {});
 
-    return result;
+    const updatedList = Object.keys(groupedByTag).map((tag) => ({
+      tag: tag,
+      tag_list: groupedByTag[tag],
+    }));
+
+    // console.log(updatedList);
+
+    return updatedList;
   } catch (err) {
     console.error("Error fetching tags with images:", err.message);
     throw new Error(err.message);

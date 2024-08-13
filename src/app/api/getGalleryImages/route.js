@@ -5,6 +5,8 @@ export async function GET(req) {
   try {
     const groups = await apiGetAllTagImages();
 
+    // console.log(NextResponse.json(groups));
+
     return NextResponse.json(groups);
   } catch (error) {
     console.error("Failed to fetch images:", error);
