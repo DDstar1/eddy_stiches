@@ -20,7 +20,7 @@ const TailorGallery = () => {
       try {
         const response = await fetch("/api/getGalleryImages");
         const data = await response.json();
-        console.log(data);
+        // console.log(data);
         setGalleries(data);
       } catch (error) {
         console.error("Failed to fetch images:", error);
@@ -33,15 +33,21 @@ const TailorGallery = () => {
   const handleImageClick = (category, index) => {
     setCurrentCategory(category);
     setSelectedImageIndex(index);
+    console.log(currentCategory);
   };
 
-  const slides =
-    galleries[currentCategory]?.map((src) => ({
-      src,
-      width: 800,
-      height: 600,
-      isSelected: false,
-    })) || [];
+  // const slidesHandler = () => {
+  const slidesHandler =
+    galleries
+      .find((item) => item.tag === currentCategory)
+      ?.tag_list.map((src) => ({
+        src,
+        width: 800,
+        height: 600,
+        isSelected: false,
+      })) || [];
+  //   return slides;
+  // };
 
   return (
     <>
@@ -85,7 +91,7 @@ const TailorGallery = () => {
         )}
 
         <Lightbox
-          slides={slides}
+          slides={slidesHandler}
           plugins={[Zoom, Fullscreen]}
           open={selectedImageIndex >= 0}
           index={selectedImageIndex}
