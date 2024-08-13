@@ -1,6 +1,8 @@
 import { NextResponse } from "next/server";
 import { apiGetAllTagImages } from "../db"; // Adjust the path to your database file
 
+export const revalidate = 1;
+
 export async function GET(req) {
   try {
     const groups = await apiGetAllTagImages();
