@@ -8,6 +8,7 @@ import Zoom from "yet-another-react-lightbox/plugins/zoom";
 import Fullscreen from "yet-another-react-lightbox/plugins/fullscreen";
 import "yet-another-react-lightbox/styles.css";
 import WazyHeaderDiv from "@/components/WazyHeaderDiv";
+import ReactLoading from "react-loading";
 
 const TailorGallery = () => {
   const [selectedImageIndex, setSelectedImageIndex] = useState(-1);
@@ -55,7 +56,7 @@ const TailorGallery = () => {
         <title>Our Gallery</title>
       </Head>
 
-      <div className="my-auto mx-auto px-4 py-8 bg-gradient-to-b from-white to-gray-200 min-h-screen">
+      <div className="my-auto mx-auto px-4 py-8 bg-gradient-to-b from-white to-gray-200 min-h-screen ">
         {galleries.length > 0 ? (
           <section className="flex flex-col md:flex-row md:flex-wrap gap-8 mb-16">
             {galleries.map((item, index) => (
@@ -83,10 +84,13 @@ const TailorGallery = () => {
             ))}
           </section>
         ) : (
-          <div className="flex justify-center items-center min-h-screen w-full">
-            <div className="text-center p-16 text-black bg-gradient-to-r from-gray-200 to-gray-300 rounded-md shadow-md">
-              There are no available images at the moment.
-            </div>
+          <div className="flex justify-center  items-center min-h-screen w-full">
+            <ReactLoading
+              type={"cylon"}
+              color={"#37474f"}
+              height={667}
+              width={375}
+            />
           </div>
         )}
 
