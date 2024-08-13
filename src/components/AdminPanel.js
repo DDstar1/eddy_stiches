@@ -194,18 +194,18 @@ const AdminPanel = () => {
       <div className="bg-white p-4 rounded shadow-md">
         <h2 className="text-xl font-semibold mb-4">Available Images</h2>
         {images.length > 0 ? (
-          <ul className="space-y-4">
+          <div className="flex flex-wrap items-center gap-5 justify-center">
             {images.map((image) => (
-              <li
+              <div
                 key={image.id}
-                className="flex items-center space-x-4 border-b pb-4"
+                className="flex flex-col items-center justify-center border-b pb-4"
               >
                 <img
                   src={image.imageurl}
                   alt={image.tagname}
-                  className="w-20 h-20 object-cover rounded"
+                  className="w-32 h-32 object-cover object-top rounded"
                 />
-                <div>
+                <div className="flex gap-2 items-center justify-center">
                   <p className="text-sm font-medium">Tag: {image.tagname}</p>
                   <button
                     onClick={() => handleDelete(image.id)}
@@ -214,16 +214,15 @@ const AdminPanel = () => {
                     Delete
                   </button>
                 </div>
-              </li>
+              </div>
             ))}
-          </ul>
+          </div>
         ) : (
           <p>No images found</p>
         )}
       </div>
-
       {/* New Category Creation */}
-      <div className="bg-white p-4 rounded shadow-md mt-6">
+      <div className="bg-white p-4 rounded shadow-md my-6">
         <h2 className="text-xl font-semibold mb-4">Create New Category</h2>
         <form onSubmit={handleCreateTag} className="flex flex-col space-y-4">
           <input
