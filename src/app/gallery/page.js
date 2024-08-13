@@ -10,6 +10,10 @@ import "yet-another-react-lightbox/styles.css";
 import WazyHeaderDiv from "@/components/WazyHeaderDiv";
 import ReactLoading from "react-loading";
 
+function getRandomNumber() {
+  return Math.floor(Math.random() * (300 - 150 + 1)) + 150;
+}
+
 const TailorGallery = () => {
   const [selectedImageIndex, setSelectedImageIndex] = useState(-1);
   const [currentCategory, setCurrentCategory] = useState("");
@@ -74,8 +78,8 @@ const TailorGallery = () => {
                 <Gallery
                   images={item.tag_list.map((src) => ({
                     src,
-                    width: 800,
-                    height: 600,
+                    width: getRandomNumber(),
+                    height: getRandomNumber(),
                   }))}
                   onClick={(index) => handleImageClick(item.tag, index)}
                   enableImageSelection={false}
