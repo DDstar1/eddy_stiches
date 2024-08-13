@@ -18,7 +18,9 @@ const TailorGallery = () => {
     // Fetch images grouped by tags
     const fetchImages = async () => {
       try {
-        const response = await fetch("/api/getGalleryImages");
+        const response = await fetch("/api/getGalleryImages", {
+          cache: "force-cache",
+        });
         const data = await response.json();
         console.log(data);
         setGalleries(data);
