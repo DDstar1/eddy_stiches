@@ -160,7 +160,10 @@ const AdminPanel = () => {
               required
             />
           </div>
-          <button type="submit" className="bg-blue-500 text-white p-2 rounded">
+          <button
+            type="submit"
+            className="bg-blue-500 hover:opacity-50 text-white p-2 rounded"
+          >
             Upload Image
           </button>
         </form>
@@ -231,7 +234,10 @@ const AdminPanel = () => {
             className="p-2 border border-gray-300 rounded"
             required
           />
-          <button type="submit" className="bg-green-500 text-white p-2 rounded">
+          <button
+            type="submit"
+            className="bg-green-500 hover:opacity-50 text-white p-2 rounded"
+          >
             Create Category
           </button>
         </form>
