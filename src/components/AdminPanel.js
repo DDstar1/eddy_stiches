@@ -61,7 +61,7 @@ const AdminPanel = () => {
       const data = await response.json();
       if (response.ok) {
         // Refresh the image list
-        setImages([...images, { id: data.id, imageUrl: data.url, tag }]);
+        setImages([...images, { id: data.id, imageurl: data.url, tag }]);
         setTag(""); // Reset the tag field
         fileInput.value = ""; // Clear the file input
         toast.success("Image has being added");
@@ -201,12 +201,12 @@ const AdminPanel = () => {
                 className="flex items-center space-x-4 border-b pb-4"
               >
                 <img
-                  src={image.imageUrl}
-                  alt={image.tag}
+                  src={image.imageurl}
+                  alt={image.tagname}
                   className="w-20 h-20 object-cover rounded"
                 />
                 <div>
-                  <p className="text-sm font-medium">Tag: {image.tag}</p>
+                  <p className="text-sm font-medium">Tag: {image.tagname}</p>
                   <button
                     onClick={() => handleDelete(image.id)}
                     className="mt-2 bg-red-500 text-white p-1 rounded"
