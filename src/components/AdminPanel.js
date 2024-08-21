@@ -221,6 +221,7 @@ const AdminPanel = () => {
           <p>No images found</p>
         )}
       </div>
+      
       {/* New Category Creation */}
       <div className="bg-white p-4 rounded shadow-md my-6">
         <h2 className="text-xl font-semibold mb-4">Create New Category</h2>

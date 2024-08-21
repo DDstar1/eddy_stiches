@@ -104,7 +104,6 @@ export function StickyNavbar() {
           <Image
             src="/logo.png"
             alt="Vercel Logo"
-            className="dark:invert "
             width={50}
             height={50}
             objectFit="contain"
