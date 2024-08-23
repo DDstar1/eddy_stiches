@@ -60,7 +60,7 @@ const TailorGallery = () => {
         <title>Our Gallery</title>
       </Head>
 
-      <div className="my-auto mx-auto px-4 py-8 bg-gradient-to-b from-white to-gray-200 min-h-screen ">
+      <div className="my-auto mx-auto px-4 py-8 bg-gradient-to-b from-white to-gray-200 min-h-screen  text-black">
         {galleries.length > 0 ? (
           <section className="flex flex-col md:flex-row md:flex-wrap gap-8 mb-16">
             {galleries.map((item, index) => (

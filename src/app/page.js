@@ -70,7 +70,7 @@ export default function Home() {
       </section>
 
       {/* Re-styled Customers Section */}
-      <section className="py-16 bg-gray-100">
+      <section className="py-16  text-black bg-gray-100">
         <div className="container mx-auto px-4">
           <h2 className="font-bold text-4xl mb-6">STYLED CUSTOMERS</h2>
           <p className="mb-12 text-lg">
@@ -137,7 +137,7 @@ export default function Home() {
       </section>
 
       {/* Style Categories Section */}
-      <section className="py-16 bg-gray-100">
+      <section className="py-16 bg-gray-100  text-black">
         <div className="container mx-auto px-4">
           <h2 className="font-bold text-4xl mb-6">OUR SERVICES</h2>
           <p className="mb-12 text-lg">
