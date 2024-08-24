@@ -4,6 +4,7 @@ import "./globals.css";
 import { StickyNavbar } from "@/components/NavBar";
 import Footer from "@/components/Footer";
 import { Toaster } from "react-hot-toast";
+import { Analytics } from "@vercel/analytics/react";
 
 const inter = Inter({ subsets: ["latin"] });
 const playfair = Playfair_Display({
@@ -30,6 +31,7 @@ export default function RootLayout({ children }) {
           {children}
           <Footer />
         </div>
+        <Analytics />
       </body>
     </html>
   );
